@@ -1,0 +1,26 @@
+{
+  "name": "hardware-hacking-with-js",
+  "version": "1.0.0",
+  "description": "Hardware Hacking with JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "arduino",
+    "hardware"
+  ],
+  "author": "krapesh",
+  "license": "ISC",
+  "dependencies": {
+    "apiai": "^4.0.0",
+    "body-parser": "^1.16.1",
+    "express": "^4.13.4",
+    "johnny-five": "^0.9.39",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+  }
+}

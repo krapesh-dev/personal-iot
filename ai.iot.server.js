@@ -48,8 +48,8 @@ server.post('/query', function(req, res) {
 //     }
 // })
 
-server.listen(3000, '127.0.0.1')
-console.log('server up at 3000')
+server.listen(process.env.PORT || 5555, '127.0.0.1')
+console.log('server up at 5555')
 
 // api ai response
 const processResponse = (result) => {

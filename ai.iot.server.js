@@ -3,7 +3,7 @@
 const apiai = require('apiai')
 const bodyParser = require('body-parser')
 var five = require('johnny-five')
-var board = new five.Board()
+// var board = new five.Board()
 var path = require('path')
 var express = require('express')
 var server = express()

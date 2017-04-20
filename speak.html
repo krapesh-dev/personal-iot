@@ -34,7 +34,7 @@
         <ul id="ai_responses">
         </ul>
         <div class="command-field row">
-            <form class="col s12">
+            <form action="#" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Placeholder" id="query" type="text" class="validate">
@@ -49,42 +49,42 @@
     </div>
     <script type="text/javascript">
     document.querySelector('#submit').addEventListener('click', execute)
-    document.querySelector('#submit').addEventListener('keyup', function(e) {
-        if(e.keyCode == 13) execute()
-    })
 
     function execute() {
         var q = document.querySelector('#query').value;
         var conversationEl = document.getElementById('ai_responses');
         var xmlhttp = new XMLHttpRequest();
 
-        var node = document.createElement("LI");
-        var textnode = document.createTextNode(q + " :Me");
-        node.setAttribute("class", "right");
-        node.appendChild(textnode);
-        document.querySelector('#ai_responses').appendChild(node)
+        if (q) {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(q + " :Me");
+            node.setAttribute("class", "right");
+            node.appendChild(textnode);
+            document.querySelector('#ai_responses').appendChild(node)
 
-        
-        conversationEl.scrollTop = conversationEl.scrollHeight;
+            document.querySelector('#query').value = '';
+            document.querySelector('#query').focus();
 
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // create ai response entry
-                var node = document.createElement("LI");
-                var textnode = document.createTextNode("IOT: " + JSON.parse(xmlhttp.responseText).reply);
-                node.setAttribute("class", "left");
-                node.appendChild(textnode);
+            conversationEl.scrollTop = conversationEl.scrollHeight;
 
-                document.querySelector('#ai_responses').appendChild(node)
-                conversationEl.scrollTop = conversationEl.scrollHeight;
-                    // '<label id="ai_response">' + JSON.parse(xmlhttp.responseText).reply + '</label>')
-            }
-        };
-        xmlhttp.open('POST', '/query', true);
-        xmlhttp.setRequestHeader("Content-Type", "application/json");
-        xmlhttp.send(JSON.stringify({
-            q: q
-        }));
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // create ai response entry
+                    var node = document.createElement("LI");
+                    var textnode = document.createTextNode("IOT: " + JSON.parse(xmlhttp.responseText).reply);
+                    node.setAttribute("class", "left");
+                    node.appendChild(textnode);
+
+                    document.querySelector('#ai_responses').appendChild(node)
+                    conversationEl.scrollTop = conversationEl.scrollHeight;
+                }
+            };
+            xmlhttp.open('POST', '/query', true);
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({
+                q: q
+            }));
+        }
     }
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

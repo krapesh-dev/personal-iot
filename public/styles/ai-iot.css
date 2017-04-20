@@ -8,7 +8,7 @@
 }
 
 ul#ai_responses {
-    height: 20em;
+    height: 300px;
     border: 1px solid gray;
     width: 94%;
     margin: 0 auto;

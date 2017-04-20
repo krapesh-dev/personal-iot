@@ -40,13 +40,13 @@ server.post('/query', function(req, res) {
 })
 
 // arduino ready
-board.on('ready', function() {
-    console.log('board ready')
-    const ledPin = new five.Led(13)
-    devices = {
-        led: ledPin
-    }
-})
+// board.on('ready', function() {
+//     console.log('board ready')
+//     const ledPin = new five.Led(13)
+//     devices = {
+//         led: ledPin
+//     }
+// })
 
 server.listen(5555, '127.0.0.1')
 console.log('server up at 5555')
@@ -87,8 +87,8 @@ const motorAction = (on, off, fan) => {
 
 const ledAction = (on, off, light) => {
     console.log(on, off, light)
-    if (on === 'on' || (on === '' && off === ''))
-        devices.led.on()
-    else
-        devices.led.off()
+    // if (on === 'on' || (on === '' && off === ''))
+    //     devices.led.on()
+    // else
+    //     devices.led.off()
 }
